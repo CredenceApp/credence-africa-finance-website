@@ -1,7 +1,8 @@
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import credenceLogo from 'figma:asset/ad478d862079e6b2cb55ae50301685630988af4c.png';
+import newLogo from '../assets/credence-logo.png';
+// import credenceLogo from 'figma:asset/ad478d862079e6b2cb55ae50301685630988af4c.png';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,13 +14,13 @@ export function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center space-x-3">
               <img 
-                src={credenceLogo} 
+                src={newLogo} 
                 alt="Credence Logo" 
-                className="h-8 w-8"
+                className="h-12 w-16"
               />
-              <span className="text-2xl font-bold text-primary" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
+              {/* <span className="text-2xl font-bold text-primary" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
                 Credence
-              </span>
+              </span> */}
             </div>
           </div>
 

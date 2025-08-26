@@ -96,8 +96,8 @@ export function HeroSection() {
   useEffect(() => {
     if (!isCarouselHovered) {
       const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % dashboardViews.length);
-      }, 1320); // 1.32 seconds - very dynamic!
+        setCurrentSlide((prev: number) => (prev + 1) % dashboardViews.length);
+      }, 5000); // 5 seconds - very dynamic!
 
       return () => clearInterval(interval);
     }
@@ -188,14 +188,14 @@ export function HeroSection() {
             onMouseLeave={() => setIsCarouselHovered(false)}
           >
             {/* Hover Activity Ring */}
-            <div className={`absolute -inset-4 rounded-2xl transition-all duration-500 ${
+            {/* <div className={`absolute -inset-4 rounded-2xl transition-all duration-500 ${
               isCarouselHovered 
                 ? 'bg-gradient-to-r from-secondary/20 via-tertiary/30 to-secondary/20 animate-pulse shadow-2xl shadow-secondary/25' 
                 : 'bg-transparent'
-            }`}></div>
+            }`}></div> */}
 
             {/* Animated Corner Indicators */}
-            <div className={`absolute -top-2 -left-2 w-6 h-6 rounded-full transition-all duration-300 ${
+            {/* <div className={`absolute -top-2 -left-2 w-6 h-6 rounded-full transition-all duration-300 ${
               isCarouselHovered 
                 ? 'bg-secondary scale-100 animate-ping' 
                 : 'bg-transparent scale-0'
@@ -214,14 +214,14 @@ export function HeroSection() {
               isCarouselHovered 
                 ? 'bg-secondary scale-100 animate-ping' 
                 : 'bg-transparent scale-0'
-            }`} style={{ animationDelay: '1.5s' }}></div>
+            }`} style={{ animationDelay: '1.5s' }}></div> */}
 
             {/* Dynamic Border Animation */}
-            <div className={`absolute inset-0 rounded-xl transition-all duration-500 ${
+            {/* <div className={`absolute inset-0 rounded-xl transition-all duration-500 ${
               isCarouselHovered 
                 ? 'border-2 border-secondary/50 shadow-lg shadow-secondary/20' 
                 : 'border-0'
-            }`}></div>
+            }`}></div> */}
 
             <div className={`relative transition-transform duration-300 ${
               isCarouselHovered ? 'scale-105' : 'scale-100'
@@ -369,7 +369,7 @@ export function HeroSection() {
             <div className={`absolute top-4 right-4 transition-all duration-300 ${
               isCarouselHovered ? 'opacity-100' : 'opacity-0'
             }`}>
-              <div className="bg-black/20 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-white font-medium flex items-center space-x-2">
+              {/* <div className="bg-black/20 backdrop-blur-sm rounded-full px-3 py-1 text-xs text-white font-medium flex items-center space-x-2">
                 {isCarouselHovered ? (
                   <>
                     <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
@@ -381,7 +381,7 @@ export function HeroSection() {
                     <span>AUTO</span>
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

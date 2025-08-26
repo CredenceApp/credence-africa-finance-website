@@ -52,10 +52,10 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" }
+    // { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com/credence54inc?s=21", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/credenceapphq/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/credence54inc?igsh=MjF0bTk3b29xcWt2&utm_source=qr", label: "Instagram" }
   ];
 
   return (
@@ -112,7 +112,7 @@ export function Footer() {
                   className="text-gray-300 hover:text-white hover:bg-white/10 p-2"
                   asChild
                 >
-                  <a href={social.href} aria-label={social.label}>
+                  <a href={social.href} target='_blank' aria-label={social.label}>
                     <social.icon className="h-4 w-4" />
                   </a>
                 </Button>

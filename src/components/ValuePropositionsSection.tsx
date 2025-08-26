@@ -67,7 +67,7 @@ export function ValuePropositionsSection() {
                     </p>
                   </div>
                   
-                  <div className="lg:col-span-3 flex justify-center lg:justify-end">
+                  {/* <div className="lg:col-span-3 flex justify-center lg:justify-end">
                     <Button 
                       size="lg" 
                       className="bg-primary hover:bg-primary/90 text-white font-semibold"
@@ -75,7 +75,7 @@ export function ValuePropositionsSection() {
                       Learn More
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </CardContent>
             </Card>

@@ -2,8 +2,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+@font-face {
+  font-family: 'Sofia';
+  src: url('../assets/fonts/Sofia\ Pro\ Regular\ Az.otf') format('otf'),
+       url('../assets/fonts/Sofia\ Pro\ Regular\ Az.otf') format('otf');
+  font-weight: 400; /* Normal/Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia';
+  src: url('../assets/fonts/Sofia\ Pro\ Bold\ Az.otf') format('otf'),
+       url('../assets/fonts/Sofia\ Pro\ Bold\ Az.otf') format('otf');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
 :root {
   --font-size: 14px;
+  --font-primary: 'Sofia', sans-serif;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -134,7 +152,8 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Outfit', sans-serif;
+    /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     font-weight: 400;
   }
 }
@@ -148,56 +167,64 @@
       font-size: var(--text-2xl);
       font-weight: 700;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     h2 {
       font-size: var(--text-xl);
       font-weight: 700;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     h3 {
       font-size: var(--text-lg);
       font-weight: 700;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     h4 {
       font-size: var(--text-base);
       font-weight: 700;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     p {
       font-size: var(--text-base);
       font-weight: 400;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     label {
       font-size: var(--text-base);
       font-weight: 400;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     button {
       font-size: var(--text-base);
       font-weight: 400;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
 
     input {
       font-size: var(--text-base);
       font-weight: 400;
       line-height: 1.5;
-      font-family: 'Outfit', sans-serif;
+      /* font-family: 'Outfit', sans-serif; */
+      font-family: var(--font-primary);
     }
   }
 }

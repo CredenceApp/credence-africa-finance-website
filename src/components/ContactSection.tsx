@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
@@ -5,6 +6,42 @@ import { Textarea } from "./ui/textarea";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const subject = 'Credence Message Us';
+    const body = `
+    First Name: ${formData.firstName}
+    Last Name: ${formData.lastName}
+    Email: ${formData.email}
+    Company: ${formData.company}
+    Message: ${formData.message}
+    `;
+
+    // Encode Subject and Body for URL
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+
+    // Open default mail client with preferred email
+    window.location.href = `mailto:support@credenceapp.co?subject=${encodedSubject}&body=${encodedBody}`
+  }
+
   const contactInfo = [
     {
       icon: Mail,
@@ -36,7 +73,7 @@ export function ContactSection() {
             Ready to Power Your Next Trade?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '400' }}>
-            Get in touch with our trade finance experts to unlock working capital 
+            Get in touch with our trade finance experts to unlock working capital
             for your agricultural business.
           </p>
         </div>
@@ -103,52 +140,55 @@ export function ContactSection() {
                 </p>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
+                        First Name
+                      </label>
+                      <Input name='firstName' value={formData.firstName} onChange={handleChange} placeholder="Enter your first name" className="border-gray-300 focus:border-primary" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
+                        Last Name
+                      </label>
+                      <Input name='lastName' value={formData.lastName} onChange={handleChange} placeholder="Enter your last name" className="border-gray-300 focus:border-primary" />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
-                      First Name
+                      Email
                     </label>
-                    <Input placeholder="Enter your first name" className="border-gray-300 focus:border-primary" />
+                    <Input name='email' value={formData.email} onChange={handleChange} type="email" placeholder="Enter your email address" className="border-gray-300 focus:border-primary" />
                   </div>
+
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
-                      Last Name
+                      Company
                     </label>
-                    <Input placeholder="Enter your last name" className="border-gray-300 focus:border-primary" />
+                    <Input name='company' value={formData.company} onChange={handleChange} placeholder="Enter your company name" className="border-gray-300 focus:border-primary" />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
-                    Email
-                  </label>
-                  <Input type="email" placeholder="Enter your email address" className="border-gray-300 focus:border-primary" />
-                </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
+                      Message
+                    </label>
+                    <Textarea
+                      name='message' value={formData.message} onChange={handleChange}
+                      placeholder="Tell us about your trade financing needs and how we can help..."
+                      className="min-h-[120px] border-gray-300 focus:border-primary resize-none"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
-                    Company
-                  </label>
-                  <Input placeholder="Enter your company name" className="border-gray-300 focus:border-primary" />
-                </div>
+                  <Button type='submit' className="w-full bg-primary hover:bg-primary/90 text-white font-semibold" size="lg">
+                    Send Message
+                  </Button>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '700' }}>
-                    Message
-                  </label>
-                  <Textarea 
-                    placeholder="Tell us about your trade financing needs and how we can help..."
-                    className="min-h-[120px] border-gray-300 focus:border-primary resize-none"
-                  />
-                </div>
-
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold" size="lg">
-                  Send Message
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '400' }}>
-                  By submitting this form, you agree to our privacy policy and terms of service.
-                </p>
+                  <p className="text-xs text-muted-foreground text-center" style={{ fontFamily: 'Outfit, sans-serif', fontWeight: '400' }}>
+                    By submitting this form, you agree to our privacy policy and terms of service.
+                  </p>
+                </form>
               </CardContent>
             </Card>
           </div>
