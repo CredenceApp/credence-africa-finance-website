@@ -3,7 +3,7 @@ import { Card, CardContent } from "./ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import { ArrowRight, TrendingUp, FileText, Wallet, Search, BarChart3, Users, DollarSign, Activity, Clock, CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
-import doodlePattern from 'figma:asset/1b5c0b80cb216a17454708a3d7522ed5f7aea094.png';
+import doodlePattern from '../assets/doodle.png';
 
 export function HeroSection() {
   const [currentWord, setCurrentWord] = useState(0);

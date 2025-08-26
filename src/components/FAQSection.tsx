@@ -21,7 +21,7 @@ export function FAQSection() {
         },
         {
           question: "How long does onboarding take?",
-          answer: "Standard onboarding typically takes 3-5 business days for SMEs and 5-10 business days for larger corporates, depending on the complexity of your business structure and the completeness of submitted documentation. We prioritize fast-track processing for verified repeat clients."
+          answer: "Standard onboarding typically takes 24 - 48  hours for SMEs and 3-7 business days for larger corporates, depending on the complexity of your business structure and the completeness of submitted documentation. We prioritize fast-track processing for verified repeat clients."
         }
       ]
     },
