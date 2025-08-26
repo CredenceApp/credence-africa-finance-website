@@ -39,7 +39,11 @@ export function ContactSection() {
     const encodedBody = encodeURIComponent(body);
 
     // Open default mail client with preferred email
-    window.location.href = `mailto:support@credenceapp.co?subject=${encodedSubject}&body=${encodedBody}`
+    // window.location.href = `mailto:support@credenceapp.co?subject=${encodedSubject}&body=${encodedBody}`
+    const mailtoLink = `mailto:support@credenceapp.co?subject=${encodedSubject}&body=${encodedBody}`
+
+    // Open email client once
+    window.open(mailtoLink, '_blank');
   }
 
   const contactInfo = [
